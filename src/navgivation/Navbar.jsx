@@ -3,7 +3,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaUserCheck } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const nav = [
@@ -17,6 +17,13 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    console.log("click login");
+    navigate('/login'); 
+  };
+  
 
   return (
     <nav className="bg-gray-800 z-20">
@@ -72,7 +79,7 @@ function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <IoSearchOutline className="w-7 h-7" />
           <IoIosNotificationsOutline className="w-7 h-7" />
-          <button className="px-6 py-2 rounded-md font-semibold bg-red-500 hover:bg-red-800 flex items-center gap-2">
+          <button  onClick={handleLoginClick} className="px-6 py-2 rounded-md font-semibold bg-red-500 hover:bg-red-800 flex items-center gap-2">
             <FaUserCheck className="w-6 h-6 bg-transparent" />
             Login
           </button>
@@ -94,7 +101,7 @@ function Navbar() {
             <IoIosNotificationsOutline className="w-7 h-7" />
           </li>
           <li className="py-2 px-6">
-            <button className="w-full text-center px-6 py-2 rounded-md font-semibold bg-red-500 hover:bg-red-800 flex justify-center items-center gap-2">
+            <button onClick={()=>{handleLoginClick}} className="w-full text-center px-6 py-2 rounded-md font-semibold bg-red-500 hover:bg-red-800 flex justify-center items-center gap-2">
               <FaUserCheck className="w-6 h-6" />
               Login
             </button>

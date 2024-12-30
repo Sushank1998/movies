@@ -7,6 +7,7 @@ import News from './navgivation/News';
 import MyList from './navgivation/MyList';
 import Serise from './navgivation/Serise';
 import MovieDetail from './innerPages/MovieDetail';
+import Login from './ui/Login';
 
 function App() {
   const router = createBrowserRouter([
@@ -37,6 +38,10 @@ function App() {
         {
           path: '/movie-detail',
           element: <MovieDetail /> 
+        },
+        {
+          path: '/login',
+          element: <Login /> 
         }
       ],
     },
